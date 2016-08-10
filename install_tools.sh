@@ -4,7 +4,7 @@ sudo apt-get -y install python3-pip
 sudo apt-get -y install apache2
 sudo apt-get -y install apache2-mpm-worker
 sudo apt-get -y install apache2-threaded-dev
-pip3 install django
+pip3 install django==1.9.2
 pip3 install mod_wsgi
 pip3 install PyMySQL
 sudo apt-get -y install git
