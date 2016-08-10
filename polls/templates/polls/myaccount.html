@@ -1,0 +1,37 @@
+{%include 'polls//userhead.html'%}
+{%include 'polls//myaccount_sub.html'%}
+<div>用户名：{{username}} 您的余额：{{money}}</div>
+<div class = "transfer_history_tips">投注历史：</div>
+<div class = "center_div">
+	{%if hasorder%}
+		{% for order in orderlist %}
+			<div class = "order_content">
+				<div>第{{order.vol}}期</div>
+				<div>投注类型：{{order.ordertypename}}</div>
+				<div>投注：{{order.content}} </div>
+				<div>下单时间：{{order.ordertime|date:"Y-m-d H:i:s"}}</div>
+				<div>下注金额: {{order.totalmoney}}元</div>
+				{%if order.hascount%}
+					<div>中奖金额: {{order.wonmoney}}元</div>
+				{%else%}
+					<div>中奖金额: 尚未开奖</div>
+					<a href = "{% url 'polls:cancelorder' order.id %}">点击取消下单</a>
+				{%endif%}
+				{%if order.rebate%}
+					<div>返水: {{order.rebate}}</div>
+				{%endif%}
+			</div>
+		{% endfor %}
+		{%if lastpage%}
+			<a href = "{% url 'polls:myaccount' lastpage %}" class = "switchpage">上一页</a>
+		{%endif%}
+
+		{%if nextpage%}
+			<a href = "{% url 'polls:myaccount' nextpage%}" class = "switchpage">下一页</a>
+		{%endif%}
+	{%else%}
+		<div>您还尚未投注过</div>
+		<a href = "{% url 'polls:index'%}">点击进行投注</a>
+	{%endif%}
+
+</div>

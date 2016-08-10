@@ -1,0 +1,14 @@
+{%include 'polls//userhead.html'%}
+<div class="center_div">
+	{% if errmsg %}
+		<p><strong>{{ errmsg }}</strong></p>
+	{% endif %}
+	<form action="{% url 'polls:signup'%}" method="post" id = 'signform'>
+	{% csrf_token %}
+	{{signupform.as_p}}
+	<div class = "input_submit">
+	<input type="submit" value="注册" />
+	</div>
+
+	</form>
+</div>

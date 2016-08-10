@@ -1,0 +1,12 @@
+{%include 'polls//userhead.html'%}
+<h2>下单成功</h2>
+<div class = "order_content">
+	<div>第{{order.vol}}期</div>
+	<div>投注类型：{{order.ordertypename}}</div>
+	<div>投注：{{order.content}} </div>
+	<div>总金额: {{order.totalmoney}}</div>
+	<div> 下单时间：{{order.ordertime|date:"Y-m-d H:i:s"}}</div>
+	<a href = "{% url 'polls:cancelorder' order.id %}">取消下单</a>
+</div>
+<a href = "{% url 'polls:index'%}" id = "ordersuc_back">返回首页</a>
+

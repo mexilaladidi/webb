@@ -1,0 +1,10 @@
+{%include 'polls//userhead.html'%}
+
+<div class = 'risk_div'>风险值：<span>{{risk}}</span>,  控制在 20 以下</div>
+
+<form action="{% url 'polls:riskmgr'%}" method="post">
+
+<div>每个特码购买数量:</div>
+{{forms.as_p}}
+{% csrf_token %}
+<input type="submit" value="计算" />

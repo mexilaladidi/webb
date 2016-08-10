@@ -1,0 +1,60 @@
+{%include 'polls//userhead.html'%}
+{%include 'polls//myaccount_sub.html'%}
+
+<div class = "center_div">
+	<div class = "invite_introduction">
+		<p>邀请码说明</p>
+		<p>当累计消费达到{{cosume}}元，您便可以生成邀请码</p>
+		<p>下面表格标明了通过邀请码注册的用户的赔率与提成，<span class = "red_font">提成会算进您的账户</span>，生成一个邀请码需要花费<span class = "red_font">10元</span>，这10元会赠送给注册用户。</p>
+		<form action="{% url 'polls:invite' 1 %}" method="post">
+			{% csrf_token %}
+			<input type="submit" value="点击生成邀请码"/>
+		</form>
+	</div>
+	<div class = "transfer_history_tips">赔率与提成：</div>
+		<div class = "transfer_history_div">
+			<table>
+				<tr class = 'transfer_list_head'>
+					<td>类型</td>
+					<td>赔率</td>
+					<td>提成比例</td>
+				</tr>
+				{% for info in profitinfos %}
+					<tr class = 'transfer_list_data'>
+						<td>{{info.name}}</td>
+						<td>{{info.profit}}</td>
+						<td>{{info.rebateprofit}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	<div class = "transfer_history_tips">您的邀请码：</div>
+	{%if hasinfo%}
+		<div class = "transfer_history_div">
+			<table>
+				<tr class = 'transfer_list_head'>
+					<td>邀请码</td>
+					<td>用户</td>
+					<td>提成</td>
+				</tr>
+			{% for info in infos %}
+				<tr class = 'transfer_list_data'>
+					<td>{{info.code}}</td>
+					<td>{{info.username}}</td>
+					<td>{{info.rebate}}</td>
+				</tr>
+			{% endfor %}
+			</table>
+			{%if nextpage%}
+				<a href = "{% url 'polls:invite' nextpage%}" class = "switchpage">下一页</a>
+			{%endif%}
+			{%if lastpage%}
+				<a href = "{% url 'polls:invite' lastpage%}" class = "switchpage">上一页</a>
+			{%endif%}
+		</div>
+	{%else%}
+		<div>无</div>
+	{%endif%}
+</div>
+	
+

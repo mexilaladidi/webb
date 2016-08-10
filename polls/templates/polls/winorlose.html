@@ -1,0 +1,22 @@
+{%include 'polls//userhead.html'%}
+<div class = "open_history_div">
+	<table>
+		<tr class = 'open_history_head_tr'>
+			<td>期数</td>
+			<td>输赢</td>
+		</tr>
+		{%for v in result%}
+			<tr class = 'open_history_tr'>
+				<td>{{v.vol}}期</td>
+				<td>{{v.money}}</td>
+			</tr>
+		{%endfor%}
+	</table>
+	{%if lastpage%}
+		<a href = "{% url 'polls:history' lastpage %}" class = "switchpage">上一页</a>
+	{%endif%}
+
+	{%if nextpage%}
+		<a href = "{% url 'polls:history' nextpage%}" class = "switchpage">下一页</a>
+	{%endif%}
+</div>

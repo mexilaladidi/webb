@@ -1,0 +1,48 @@
+{%include 'polls//userhead.html'%}
+{%include 'polls//myaccount_sub.html'%}
+<div class = "center_div">
+	<div class = "invite_introduction">
+		<p>提现说明</p>
+		<p>方式一：如果你认识邀请人或者工作人员，通过网站转账功能即可</p>
+		<p>方式二：通过网站提现功能，提供银行卡号，提现最低要求100元</p>
+		<p>您当前可提现：{{money}}元</p>
+	</div>
+	<form action="{% url 'polls:deposit' 1%}" method="post" id = 'signform'>
+	{% csrf_token %}
+	{{forms.as_p}}
+	<input type="submit" value="确认提现" />
+</div>
+<div class = "deposit_history_tips">提现历史</div>
+{%if hashistory%}
+	<div class = "deposit_history_div">
+		<table>
+			<tr class = 'deposit_list_head'>
+				<td>时间</td>
+				<td>金额</td>
+				<td>信息</td>
+				<td>状态</td>
+			</tr>
+		{% for info in infos %}
+			<tr class = 'deposit_list_data'>
+				<td>{{info.time|date:"m-d H:i" }}</td>
+				<td>{{info.money}}</td>
+				<td>{{info.bankcard}}</td>
+				<td>
+					{{info.statusstr}}
+					{%if info.status == 1%}
+						<a href = "{% url 'polls:canceldeposit' info.id%}">取消</a>
+					{%endif%}
+				</td>
+			</tr>
+		{% endfor %}
+		</table>
+		{%if nextpage%}
+			<a href = "{% url 'polls:deposit' nextpage%}" class = "switchpage">下一页</a>
+		{%endif%}
+		{%if lastpage%}
+			<a href = "{% url 'polls:deposit' lastpage%}" class = "switchpage">上一页</a>
+		{%endif%}
+	</div>
+{%else%}
+		<div>无</div>
+{%endif%}

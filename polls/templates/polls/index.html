@@ -1,0 +1,14 @@
+{%include 'polls//userhead.html'%}
+{%if username == None%}
+	<div class = "index_notify">好消息：注册即送10元礼金</div>
+	<div class = "center_div">
+		<span><a href = "{% url 'polls:signup'%}" class = "index_span">免费注册</a></span>
+		<span><a href = "{% url 'polls:login'%}"class = "index_span">立即登录</a></span>
+	</div>
+{%endif%}
+
+<div class = "index_div">
+	{%for v in betlist%}
+		<a class = "buytypelink" href = "{% url 'polls:betorder' v.type%}">{{v.name}}{{v.money}}</a></br>
+	{%endfor%}
+</div>

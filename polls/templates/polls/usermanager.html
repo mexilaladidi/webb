@@ -1,0 +1,57 @@
+{%include 'polls//userhead.html'%}
+{% if errmsg %}
+	<p><strong>{{ errmsg }}</strong></p>
+{% endif %}
+<form action="{% url 'polls:usermgr'%}" method="post">
+{% csrf_token %}
+<div class = 'usermgr_div'>
+	{%if operationusername%}
+		<div class = 'usermgr_userinfo'>
+			<p>用户名：{{operationusername}}</p>
+			<p>可提现余额：{{money}}</p>
+			{%if group >= 2%}
+				<p>信用额度：{{credit}}</p>
+			{%endif%}
+		</div>
+		<div class = 'hide_div'>
+			{{forms.UserName}}
+		</div>
+		<div>
+			{{forms.Recharge.label_tag}}
+			{{forms.Recharge}}
+		</div>
+		<div>
+			{{forms.Deposit.label_tag}}
+			{{forms.Deposit}}
+		</div>
+		{%if group < 2%}
+		<div class = 'hide_div'>
+		{%endif%}
+		<div>
+			{{forms.AddCredit.label_tag}}
+			{{forms.AddCredit}}
+		</div>
+		<div>
+			{{forms.DecCredit.label_tag}}
+			{{forms.DecCredit}}
+		</div>
+		{%if group < 2%}
+		</div>
+		{%endif%}
+
+		<input type="submit" value="提交" id = 'usermgr_submit'/>
+		
+	{%else%}
+		{{forms.UserName.label_tag}}
+		{{forms.UserName}}
+		<div class = 'hide_div'>
+			{{forms.Recharge}}
+			{{forms.Deposit}}
+			{{forms.AddCredit}}
+			{{forms.DecCredit}}
+		</div>
+		<input type="submit" value="查询" />
+	{%endif%}
+</div>
+
+</form>

@@ -1,0 +1,40 @@
+{%include 'polls//userhead.html'%}
+{%include 'polls//myaccount_sub.html'%}
+
+<div class = "center_div">
+	<div class = "transfer_input_div">
+		<form action="{% url 'polls:transfer' 1 %}" method="post" id = 'signform'>
+		<div>可转账金额：{{money}}</div>
+		{% csrf_token %}
+		{{forms.as_p}}
+		<input type="submit" value="确认转账" />
+	</div>
+</div>
+	<div class = "transfer_history_tips">账单历史</div>
+	{%if hasbill%}
+		<div class = "transfer_history_div">
+			<table>
+				<tr class = 'transfer_list_head'>
+					<td>时间</td>
+					<td>金额</td>
+					<td>用户</td>
+				</tr>
+			{% for bill in bills %}
+				<tr class = 'transfer_list_data'>
+					<td>{{bill.time|date:"m-d H:i" }}</td>
+					<td>{{bill.money}}</td>
+					<td>{{bill.name}}</td>
+				</tr>
+			{% endfor %}
+			</table>
+			{%if nextpage%}
+				<a href = "{% url 'polls:transfer' nextpage%}" class = "switchpage">下一页</a>
+			{%endif%}
+			{%if lastpage%}
+				<a href = "{% url 'polls:transfer' lastpage%}" class = "switchpage">上一页</a>
+			{%endif%}
+		</div>
+	{%else%}
+		<div>无</div>
+	{%endif%}
+

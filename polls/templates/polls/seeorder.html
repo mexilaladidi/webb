@@ -1,0 +1,27 @@
+{%include 'polls//userhead.html'%}
+{%include 'polls//myaccount_sub.html'%}
+<div class = "center_div">
+	{% for order in orderlist %}
+		<div class = "order_content">
+			<div>第{{order.vol}}期</div>
+			<div>用户：{{order.username}}</div>
+			<div>投注类型：{{order.ordertypename}}</div>
+			<div>投注：{{order.content}} </div>
+			<div>总金额: {{order.totalmoney}}</div>
+			<div> 下单时间：{{order.ordertime|date:"Y-m-d H:i:s"}}</div>
+			{%if order.hascount%}
+				<div>盈利: {{order.wonmoney}}</div>
+				<div>返水: {{order.rebateforshow}}给用户：{{order.rebatename}}</div>
+			{%else%}
+				<div>盈利: 尚未开奖</div>
+			{%endif%}
+		</div>
+	{% endfor %}
+	{%if lastpage%}
+		<a href = "{% url 'polls:myaccount' lastpage %}" class = "switchpage">上一页</a>
+	{%endif%}
+
+	{%if nextpage%}
+		<a href = "{% url 'polls:myaccount' nextpage%}" class = "switchpage">下一页</a>
+	{%endif%}
+</div>

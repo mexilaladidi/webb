@@ -1,0 +1,12 @@
+{%include 'polls//userhead.html'%}
+<div class="center_div">
+	{% if errmsg %}
+		<p class = "errmsg"><strong>{{ errmsg }}</strong></p>
+	{% endif %}
+	<form action="{% url 'polls:login'%}" method="post" id = 'loginform'>
+	<p>请输入用户名和密码</p>
+	{% csrf_token %}
+	{{loginform.as_p}}
+	<input type="submit" value="登录" />
+	</form>
+</div>

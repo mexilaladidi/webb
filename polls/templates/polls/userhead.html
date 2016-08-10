@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1,  user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"/>
+<div class = 'headimgback'><img src="/static/polls/back.png"></div>
+<div id = 'userheadback'>
+	<table>
+		<tr>
+
+		{%if username %}
+				<td><a href = "{% url 'polls:index'%}">投注</td>
+				<td><a href = "{% url 'polls:history' 1%}">开奖结果</td>
+				<td><a href = "{% url 'polls:myaccount' 1 %}">我的账户</td>
+				<td><a href = "{% url 'polls:logout'%}">登出</td>
+		{%else%}
+				<td><a href = "{% url 'polls:index'%}">主页</td>
+				<td><a href = "{% url 'polls:signup'%}">注册</td>
+				<td><a href = "{% url 'polls:login'%}">登录</td>
+		{%endif%}
+		{%if username == '8190' %}
+			<td><a href = "{% url 'polls:riskmgr'%}">风险管理</td>
+			<td><a href = "{% url 'polls:seeorder' 1%}">近期单子</td>
+			<td><a href = "{% url 'polls:winorlose'%}">每期输赢</td>
+		{%endif%}
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,6 @@
+{%include 'polls//userhead.html'%}
+<form action="{% url 'polls:oddeven' %}" method="post" id = 'oddevenform'>
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="下单" />
+</form>

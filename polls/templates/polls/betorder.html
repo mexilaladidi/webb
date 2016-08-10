@@ -1,0 +1,29 @@
+{%include 'polls//userhead.html'%}
+<script language="javascript" src="/static/polls/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[type='number']").click(function(){
+			if (this.value == 0)
+				this.value = "";
+		});
+		$("input[type='number']").blur(function(){
+			if (this.value == "")
+				this.value = 0;
+		});
+	});
+</script>
+<div class = "center_div" id = "shit">
+	<div>第{{vol}}期</div>
+	<div>封盘时间：{{closetime|date:"Y-m-d H:i:s"}}</div>
+	{%if oddstips %}
+		<p class = "oddstips">{{oddstips}}</p>
+	{%endif%}
+	<form action="{% url 'polls:betorder' ordertype %}" method="post" class = 'betorder_form'>
+		{% csrf_token %}
+		<div class="div_betorderitem">
+		{{forms.non_filed_errors}}
+		{{forms.as_p}}
+		</div>
+	<input type="submit" value="下单" class = "order_input" />
+	</form>
+</div>

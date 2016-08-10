@@ -1,0 +1,15 @@
+{%include 'polls//userhead.html'%}
+<script language="javascript" src="/static/polls/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#shit').click(function(){
+			alert("shit");
+		});
+	}
+</script>
+<form action="{% url 'polls:betone' %}" method="post" id = 'betoneform'>
+{% csrf_token %}
+{{betoneform.as_p}}
+<input type="submit" value="下单" id = "shit"/>
+</form>
+<div>shit</div>

@@ -1,0 +1,308 @@
+#userheadback {
+	background:#eeeeee;
+	top:0;
+	left:0;
+	border: solid 1px #aaaaaa;
+	border-radius: 10px;
+}
+
+#userheadback table{
+	/*background: #ff0000;*/
+	/*position: relative;*/
+	line-height: 40px;
+	/*left:50%;*/
+}
+
+#userheadback td{
+	/*width: 100px;*/
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+	float:left;
+}
+
+#userheadback a{
+	width: 100px;
+	font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	color: #222222;
+	/*text-shadow: 0 1px 0 #aaa;*/
+	font-weight: bold;
+	
+}
+
+#signform, #loginform{
+	background-color: #eeeeee;
+	border-radius: 20px;
+	border:solid 1px #aaaaaa;
+	margin-top: 10px;
+	padding-bottom: 10px;
+}
+
+#signform label, #loginform label{
+	width: 150px;
+	display: inline-block;
+	/*border:solid 1px;*/
+	/*font-size: 10px;*/
+}
+
+.order_content {
+	margin: 0px auto;
+	text-align:left;
+	margin-top: 20px;
+	width: 300px;
+	/*height:200px;*/
+	background: #eeeeee;
+	border: solid 1px #aaaaaa;
+	border-radius: 10px;
+}
+
+
+.buytypelink {
+	font-size: 30px;
+	margin-bottom: 5px;
+	text-decoration: none;
+	display: block;
+	color: #0000ff;
+}
+.index_div{
+	border: solid 1px #eeeeee;
+	max-width: 400px;
+	min-width: 300px;
+	border-radius: 40px;
+	margin: 0px auto;
+	text-align:center;
+	margin-top: 20px;
+	background-color: #f5f5f5;
+}
+.betorder_form{
+	border:solid 1px #aaaaaa;
+	padding-bottom: 20px;
+	border-radius: 20px;
+	background: #eeeeee;
+
+}
+.div_betorderitem{
+	text-align: center;
+	margin: 0px auto;
+	max-width: 400px;
+	/*background: #ff0000;*/
+	display: block;
+	overflow: auto;
+
+}
+.div_betorderitem p{
+	font-size: 20px;
+	float: left;
+	display: block;
+	margin-left: 10px;
+}
+.div_betorderitem input{
+	/*font-size: 20px;*/
+	width:70px;
+}
+
+.order_input{
+	clear: both;
+}
+
+.oddstips {
+	/*font-size: 40px;*/
+	color: #ff0000;
+}
+
+#ordersuc_back {
+	font-size: 30px;
+	margin-top: 40px;
+	display: block;
+}
+
+.history_table {
+	margin-top: 30px;
+	border: solid 1px #000000;
+}
+
+.history_table td{
+	/*width: 100px;*/
+	text-align: center;
+	border: solid 1px #000000;
+}
+
+.normalnum_td {
+	/*width: 300px;*/
+}
+
+.switchpage {
+	margin-right: 40px;
+	text-decoration: none;
+	padding-bottom: 20px;
+
+}
+
+.hide_div {
+	display: none;
+}
+
+.usermgr_div {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.usermgr_div input{
+	margin-top: 20px;
+	font-size: 30px;
+	height: 40px;
+	width: 100px;
+}
+.usermgr_div label{
+	font-size: 20px;
+}
+
+#usermgr_submit {
+	margin-top: 30px;
+}
+
+.usermgr_userinfo {
+	font-size: 20px;
+}
+
+.risk_div {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 30px;
+}
+.risk_div span{
+	color: #ff0000;
+	font-size: 40px;
+}
+
+.center_div {
+	margin: 0px auto;
+	text-align:center;
+}
+
+.tips_div{
+	margin: 0px auto;
+	margin-top: 30px;
+	text-align:center;
+	max-width: 300px;
+	min-width: 100px;
+	line-height: 50px;
+	border-radius: 20px;
+	border: solid 1px #aaaaaa;
+	background-color: #f4f4f4;
+	font-size: 20px;
+}
+.transfer_history_div, .deposit_history_div{
+	margin: 0px auto;
+	text-align:center;
+
+}
+.transfer_history_tips, .deposit_history_tips{
+	margin-top: 20px;
+	font-weight: bold; 
+	color:#FF7F00;
+}
+
+.transfer_list_head, .deposit_list_head {
+	background-color: #eeeeee;
+}
+
+.transfer_list_data td, .deposit_list_data td{
+	width: 300px;
+	/*border: solid 1px;*/
+	border-bottom: solid 1px #eeeeee;
+}
+.myaccountsub_table{
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+.myaccountsub_table td{
+	margin-right: 10px;
+	float: left;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	background-color: #FF7F00;
+	font-weight: bold;
+	border-radius: 10px;
+}
+.myaccountsub_table a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.index_notify {
+	margin: 0 auto;
+	text-align: center;
+	background-color: #00af00;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.headimgback{
+	margin: 0 auto;
+	text-align: center;
+	background: url("/static/polls/navg.gif") repeat;
+	margin-bottom: 2px;
+}
+
+.topup_div{
+	border-radius: 20px;
+	border: solid 1px #aaaaaa;
+	background-color: #f4f4f4;
+	/*font-size: 20px;*/
+}
+
+.index_span{
+	border: solid 1px;
+	border-radius: 10px;
+	font-size: 20px;
+	margin-top:20px;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	background-color: #00af00;
+	color: #ffffff;
+	font-weight: bold;
+}
+.errmsg{
+	color: #ff0000;	
+}
+
+.invite_introduction
+{
+	border: solid 1px #aaaaaa;
+	border-radius: 10px;
+	margin-top:20px;
+	padding: 3px 3px 3px 3px;
+	text-decoration: none;
+	font-weight: bold;
+	background:#eeeeee;
+	color: #222222;
+
+}
+.red_font{
+	color: #FF0000;
+}
+.open_history_head_tr{
+	width: 500px;
+	background-color: #F0FFF0;
+}
+.open_history_tr td{
+	border-bottom: solid 1px #eeeeee;
+	padding: 3px 3px 3px 3px;
+}
+.open_history_div{
+	margin: auto 0px;
+	text-align: center;
+}
+.open_history_div table{
+	margin-top: 10px;
+	width: 100%;
+}
+
+.history_specil_td {
+	background-color: #FFEFD5;
+}
