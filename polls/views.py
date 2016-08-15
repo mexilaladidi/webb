@@ -765,4 +765,13 @@ def winorlose(request):
 			total = total - v.totalmoney + v.wonmoney + rebate
 		temp = { 'vol':i, 'money':round(total+0.0001, 2)}
 		result.append(temp)
-	return render(request, r'polls/winorlose.html', {'result':result, 'username':username})
+	totalWin = 0
+	for v in BetOrder.objects.filter(username = username):
+		rebate = 0
+		if v.rebate != "":
+			name, rebate = v.rebate.split(":")
+			if name != None and name == username:
+				rebate = float(rebate)
+		totalWin = totalWin - v.totalmoney + v.wonmoney + rebate
+	totalWin = round(totalWin+0.0001, 2)
+	return render(request, r'polls/winorlose.html', {'result':result, 'username':username, 'totalWin':totalWin})
