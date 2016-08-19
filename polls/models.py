@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import F
 from django.utils import timezone
+from datetime import timedelta
 from .enums import OrderType, GetProfitByLevel, GetRebateProfitByLevel, MoneyReason, BillType, DepositStatus
 from .logutil import LogErr
 import random
@@ -243,10 +244,25 @@ class OpenNum(models.Model):
 					order.Count(result)
 				else:
 					order.Recovery()
-		except:
-			pass
+		except Exception as e:
+			LogErr(str(e))
 		finally:
 			g_lock.release()
+		if len(result) == 8:
+			dayOfWeek = timezone.localtime(self.opentime).weekday()+1
+			nextOpen = OpenNum.objects.filter(vol = self.vol+1)
+			if len(nextOpen) == 0:
+				nextOpen = OpenNum()
+				nextOpen.bettype = self.bettype
+				nextOpen.vol = self.vol+1
+				nextOpen.result = ""
+				if dayOfWeek == 2 or dayOfWeek == 4 or dayOfWeek == 7:
+					nextOpen.opentime = self.opentime+timedelta(days=2)
+				elif dayOfWeek == 6:
+					nextOpen.opentime = self.opentime+timedelta(days=3)
+				else:
+					nextOpen.opentime = self.opentime+timedelta(days=2)
+				nextOpen.save()
 
 	def HasOpenYet(self):
 		return self.opentime <= timezone.now()
